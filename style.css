@@ -9,10 +9,14 @@ Vantagem: se quiser trocar uma cor, muda só aqui e ela é atualizada em todos o
     --azul: #2563EB;
     --verde: #16A34A;
     --verde-escuro: #15803D;
-    --texto-principal: #0F172A;
+    --texto-principal: #000000;
     --texto-secundario: #475569;
     --cor-borda: #E5E7EB;
     --cor-fundo: #FFFFFF;
+    --cor-fundo-header: #00752b;
+    --cor-botão: #0f4d01; 
+    --botão-fundo: #4fc83469; 
+    --texto-secundario: #000000; 
 }
 
 /* O "*" seleciona TODOS os elementos da página */
@@ -25,7 +29,8 @@ Vantagem: se quiser trocar uma cor, muda só aqui e ela é atualizada em todos o
 }
 
 body {
-    font-family: "Inter", sans-serif; /* Tipo de fonte do projeto */
+    /* font-family: "Inter", sans-serif;  */
+    font-family: "Oleo Script", system-ui; /* Tipo de fonte do projeto */
     color: var(--texto-principal); /* Cor da fonte */
 }
 
@@ -33,8 +38,8 @@ body {
     position: sticky; /* Faz o cabeçalho "grudar no topo da tela"*/
     top: 0; /* Coladinho no topo */
     z-index: 100; /* ordem de empilhamento (camadas) */
-    background-color: var(--cor-fundo); /* Cor de fundo */
-    border-bottom: 1px solid blue; /* Borda inferior */
+    background-color: var(--cor-fundo-header); /* Cor de fundo */
+    border-bottom: 1px solid rgb(0, 0, 0); /* Borda inferior */
 }
 
 .header-inner {
@@ -127,18 +132,84 @@ body {
     background-color: var(--cor-fundo);
     color: var(--texto-principal);
     border-color: var(--cor-borda);
+   
 }
 
 .btn-entrar:hover {
     border-color: var(--texto-principal);
+    box-shadow: 0px 8px 8px rgba(156, 255, 136, 0.494);
 }
 
 .btn-cadastrar {
-    background-color: var(--verde);
+    background-color: var(--cor-botão);
     color: #FFF;
+
 }
 
 .btn-cadastrar:hover {
     background-color: var(--verde-escuro);
+     box-shadow: 0px 8px 8px rgba(255, 255, 255, 0.62);
 }
 
+/* Menu hamburguer */
+.hamburguer {
+    display: none; 
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Some no desktop, só existe no mobile */
+.nav-actions {
+    display: none;
+    gap: 12px;
+    margin-top: 8px;
+    border-top: 1px solid var(--cor-borda);
+    padding-top: 16px;
+    width: 100%;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .hamburguer {
+        display: block;
+    }
+
+    .actions {
+        display: none;
+        /* Os botões originais do header somem no mobile, pq agora eles moram dentro do menu */
+    }
+
+    .nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--botão-fundo);
+        border-left: 1px solid var(--cor-botão);
+        padding: 16px 24px;
+        gap: 16px;
+
+    }
+
+    /* Classe que o JavaScript vai adicionar/remover para mostrar o menu */
+    .nav.ativo {
+        display: flex;
+    }
+
+
+
+
+    .nav-actions .btn {
+    flex: 1;
+    /* os dois botões dividem a largura igualmente */
+}
+
+}
