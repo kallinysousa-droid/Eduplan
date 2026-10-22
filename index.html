@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="style.css">
     <!-- Importando a fonte do projeto -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double+Ink:wght@100..900&family=Oleo+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <!-- Biblioteca de ícones do Gogle (Material Symbols). Para usar um ícone, basta escrever o NOME desntro de um <span>. <span class="material-symbols-outlined">home</span> -->
 </head>
 <body>
     <!-- <header> é uma tag semântica: ela existe especificamente para marcar o cabeçalho do site.
@@ -27,20 +28,83 @@
                 <li><a href="#">Beneficios</a></li>
                 <li><a href="#">Sobre</a></li>
                 <li><a href="#">Depoimentos</a></li>
-                <li><a href="#">Contato</a></li> 
+                <li><a href="#">Contato</a></li>  
 
-                <li class="nav-actions"></li>
-                <a href="#" class="btn btn-entrar">Entrar</a>
-                <a href="#" class="btn btn-cadastrar">Cadastrar</a>
+                <li class="nav-actions">
+                    <a href="#" class="btn btn-entrar">Entrar</a>
+                    <a href="#" class="btn btn-cadastrar">Cadastrar</a>
+                </li>
             </ul>
 
             <div class="actions">
                 <a href="#" class="btn btn-entrar">Entrar</a>
                 <a href="#" class="btn btn-cadastrar">Cadastrar</a>
             </div>
+
+            <button class="hamburguer" id="btn-menu">☰</button>
         </div>
-        <button class="hamburguer" id="btn-menu">☰</button>
     </header>
-        <script src="script.js"></script>
+
+    <!-- HERO -->
+     <!-- "HERO" É O NOME DA PRIMEIRA SEÇÃO DO SITE, A "VITRINE". 
+      <main> marca o conteúdo principla da página (as próximas seções também vão aqui dentro)-->  
+
+    <main>
+        <!-- Section são seções do projeto -->
+        <section class="hero" id="Inicio">
+            <!-- Mesmo "envelope" do header: limita a largura e organiza as duas colunas -->
+            <div class="hero-inner">
+
+                <!-- COLUNA DA ESQUERDA: textos e botões -->
+                 <divclass="hero-texto">
+                    <span class="hero-etiqueta">Plataforma para Professores</span>
+                 </div>
+
+                 <!-- O texto que esta escrito normal. Quem deixa em MAIÚSCULO é o CSS (text-transform). O <span> permite pintar só a palavra "inteligente" de azul  -->
+                <h1 class="hero-titulo">
+                    Planejamento pedagogico <span>inteligente</span>
+                </h1>
+
+                <p .hero-descricao> 
+                    Organize planos de aula, acompanhe turmas e centralize sua rotina acadêmica em um só lugar
+                </p>
+
+                <div class="hero-botoes">
+                    <a href="#" class="btn-primeiro btn-grande"> Começar agora </a>
+                    <a href="#" class="btn-contorno btn-grande">
+                        <span class="
+                        material-symbols-outlined">play_arrow</span>
+                        Ver recursos 
+                    </a>
+                </div>
+
+                <!-- Faixa com as 3 vantagens  -->
+                <ul class="hero-vantagens">
+                    <li>
+                        <span class="material-symbols-outlined">Verified_user</span>
+                        <p><strong>Seguro</strong>Seus dados protegidos</p>
+                    </li>
+
+                    <li>
+                         <span class="material-symbols-outlined">cloud</span>
+                         <p>Acesso em qualquer lugar</p>
+                    </li>
+
+                     <li>
+                         <span class="material-symbols-outlined">scheddule</span>
+                         <p>Economize tempo</p>
+                    </li>
+                </ul>
+            </div>
+            
+            <img 
+             src="./assets/dashboard,html.png"
+             alt="Tela do dashboard do Eduplam"
+             class="hero-imagem"
+             >
+        </section>
+    
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>

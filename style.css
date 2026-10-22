@@ -204,6 +204,15 @@ body {
         display: flex;
     }
 
+    .nav-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 8px;
+        border-top: 1px solid var(--cor-borda);
+        padding-top: 16px;
+        width: 100%;
+    }
+
 
 
 
