@@ -303,8 +303,69 @@ ao texto */
     color: #FFF;
 }
 
+.btn-primario:hover {
+    background-color: var(--azul-hover);
+}
+
 .btn-contorno {
     background-color: var(--cor-fundo);
     color: var(--azul-escuro);
     border: 1.5px solid var(--azul-escuro);
+}
+
+.btn-contorno:hover {
+    background-color: var(--azul-claro);
+}
+
+/* Faixa com as 3 vantagens */
+
+.hero-vantagens {
+    list-style: none;
+    display: flex;
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+    padding: 14px 0;
+    max-width: 460px;
+}
+
+.hero-vantagens li {
+    flex: 1; /* Os 3 itens dividem a largura igualmente*/
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 14px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--texto-secundario);
+}
+
+/* Linha divisória entre os itens 
+"li + li" = todo <li> que vem DEPOIS de outro <li> (ou seja, o 2º e o 3º)
+*/
+.hero-vantagens li + li {
+    border-left: 1px solid var(--cor-borda);
+}
+
+.hero-vantagens .material-symbols-outlined {
+    color: var(--azul-escuro);
+    font-size: 26px;
+}
+
+.hero-vantagens strong {
+    display: block;
+    color: var(--texto-principal);
+    font-weight: 600;
+}
+
+/* Coluna da direita: Imagem do Dashboard */
+
+.hero-imagem {
+    width: 100%;
+    height: auto;
+    display: block;
+    background-color: var(--cor-fundo);
+    border: 2px solid var(--texto-principal);
+    border-radius: 14px;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
 }
