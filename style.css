@@ -9,14 +9,16 @@ Vantagem: se quiser trocar uma cor, muda só aqui e ela é atualizada em todos o
     --azul: #2563EB;
     --verde: #16A34A;
     --verde-escuro: #15803D;
-    --texto-principal: #000000;
+    --texto-principal: #0F172A;
     --texto-secundario: #475569;
     --cor-borda: #E5E7EB;
     --cor-fundo: #FFFFFF;
-    --cor-fundo-header: #00752b;
-    --cor-botão: #0f4d01; 
-    --botão-fundo: #4fc83469; 
-    --texto-secundario: #000000; 
+
+    /* NOVAS Variáveis */
+    --azul-marinho: #0B1E4F;
+    --azul-hover: #1E40AF;
+    --azul-claro: #DBEAFE;
+    --fundo-suave: #F5F8FF;
 }
 
 /* O "*" seleciona TODOS os elementos da página */
@@ -29,8 +31,7 @@ Vantagem: se quiser trocar uma cor, muda só aqui e ela é atualizada em todos o
 }
 
 body {
-    /* font-family: "Inter", sans-serif;  */
-    font-family: "Oleo Script", system-ui; /* Tipo de fonte do projeto */
+    font-family: "Inter", sans-serif; /* Tipo de fonte do projeto */
     color: var(--texto-principal); /* Cor da fonte */
 }
 
@@ -38,8 +39,8 @@ body {
     position: sticky; /* Faz o cabeçalho "grudar no topo da tela"*/
     top: 0; /* Coladinho no topo */
     z-index: 100; /* ordem de empilhamento (camadas) */
-    background-color: var(--cor-fundo-header); /* Cor de fundo */
-    border-bottom: 1px solid rgb(0, 0, 0); /* Borda inferior */
+    background-color: var(--cor-fundo); /* Cor de fundo */
+    border-bottom: 1px solid var(--cor-borda); /* Borda inferior */
 }
 
 .header-inner {
@@ -132,28 +133,25 @@ body {
     background-color: var(--cor-fundo);
     color: var(--texto-principal);
     border-color: var(--cor-borda);
-   
 }
 
 .btn-entrar:hover {
     border-color: var(--texto-principal);
-    box-shadow: 0px 8px 8px rgba(156, 255, 136, 0.494);
 }
 
 .btn-cadastrar {
-    background-color: var(--cor-botão);
+    background-color: var(--verde);
     color: #FFF;
-
 }
 
 .btn-cadastrar:hover {
     background-color: var(--verde-escuro);
-     box-shadow: 0px 8px 8px rgba(255, 255, 255, 0.62);
 }
 
-/* Menu hamburguer */
+/* Menu Hamburguer */
+
 .hamburguer {
-    display: none; 
+    display: none; /* Ocultando botão do menu */
     font-size: 24px;
     background: none;
     border: none;
@@ -163,15 +161,7 @@ body {
 /* Some no desktop, só existe no mobile */
 .nav-actions {
     display: none;
-    gap: 12px;
-    margin-top: 8px;
-    border-top: 1px solid var(--cor-borda);
-    padding-top: 16px;
-    width: 100%;
 }
-
-
-
 
 @media (max-width: 768px) {
     .hamburguer {
@@ -180,7 +170,9 @@ body {
 
     .actions {
         display: none;
-        /* Os botões originais do header somem no mobile, pq agora eles moram dentro do menu */
+        /* Os botões originais do header somem no
+        mobile, porque agora eles moram dentro do
+        menu */
     }
 
     .nav {
@@ -192,11 +184,10 @@ body {
         top: 100%;
         left: 0;
         right: 0;
-        background: var(--botão-fundo);
-        border-left: 1px solid var(--cor-botão);
+        background: var(--cor-fundo);
+        border-bottom: 1px solid var(--cor-borda);
         padding: 16px 24px;
         gap: 16px;
-
     }
 
     /* Classe que o JavaScript vai adicionar/remover para mostrar o menu */
@@ -213,12 +204,168 @@ body {
         width: 100%;
     }
 
-
-
-
     .nav-actions .btn {
-    flex: 1;
-    /* os dois botões dividem a largura igualmente */
+        flex: 1;
+        /* Os dois botões dividem a largura igualmente */
+    }
 }
 
+/* HERO */
+
+/* Icones do Google: Deixamos o tamanho padrão menor e alinhado 
+ao texto */
+.material-symbols-outlined {
+    font-size: 20px;
+    line-height: 1;
+    display: inline-block;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    flex-shrink: 0; /* O ícone nunca encolhe dentro de um flex */
+}
+
+.hero {
+    background-color: var(--fundo-suave);
+    padding: 64px 0 80px; /* 64px em cima, 0 nas laterais, 80px embaixo*/
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+/* Aqui usaremos o GRID, "irmão" do Flexbox
+-> Flexbox organiza em UMA direção; Grid organiza em colunas E linhas 
+*/
+.hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+
+    display: grid;
+    /* "fr" = fração do espaço disponivel */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    align-items: center;
+    gap: 48px;
+}
+
+/* Coluna da Esquerda */
+
+.hero-etiqueta {
+    display: inline-block;
+    background-color: var(--azul-claro);
+    color: var(--azul-escuro);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase; /* Deixa o texto em MAIÚSCULAS */
+    letter-spacing: 0.5px; /* Um pouco de espaço entre as letras */
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.hero-titulo {
+    color: var(--azul-marinho);
+    font-size: 54px;
+    font-weight: 800;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.hero-titulo span {
+    color: var(--azul-escuro);
+    display: block;
+}
+
+.hero-descricao {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--texto-secundario);
+    max-width: 440px; /* Impede que a linha fique muito comprida*/
+    margin-bottom: 32px;
+}
+
+.hero-botoes {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap; /* Se não couber, o segundo botão desce p/ baixo */
+    margin-bottom: 32px;
+}
+
+/* Versão maior do botão */
+
+.btn-grande {
+    font-size: 15px;
+    padding: 14px 28px;
+    text-transform: uppercase;
+    gap: 8px;
+}
+
+.btn-primario {
+    background-color: var(--azul-escuro);
+    color: #FFF;
+}
+
+.btn-primario:hover {
+    background-color: var(--azul-hover);
+}
+
+.btn-contorno {
+    background-color: var(--cor-fundo);
+    color: var(--azul-escuro);
+    border: 1.5px solid var(--azul-escuro);
+}
+
+.btn-contorno:hover {
+    background-color: var(--azul-claro);
+}
+
+/* Faixa com as 3 vantagens */
+
+.hero-vantagens {
+    list-style: none;
+    display: flex;
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+    padding: 14px 0;
+    max-width: 460px;
+}
+
+.hero-vantagens li {
+    flex: 1; /* Os 3 itens dividem a largura igualmente*/
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 14px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--texto-secundario);
+}
+
+/* Linha divisória entre os itens 
+"li + li" = todo <li> que vem DEPOIS de outro <li> (ou seja, o 2º e o 3º)
+*/
+.hero-vantagens li + li {
+    border-left: 1px solid var(--cor-borda);
+}
+
+.hero-vantagens .material-symbols-outlined {
+    color: var(--azul-escuro);
+    font-size: 26px;
+}
+
+.hero-vantagens strong {
+    display: block;
+    color: var(--texto-principal);
+    font-weight: 600;
+}
+
+/* Coluna da direita: Imagem do Dashboard */
+
+.hero-imagem {
+    width: 100%;
+    height: auto;
+    display: block;
+    background-color: var(--cor-fundo);
+    border: 2px solid var(--texto-principal);
+    border-radius: 14px;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
 }
